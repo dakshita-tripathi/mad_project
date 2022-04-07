@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../models/user.dart';
 import '../../services/database.dart';
 import '../../shared/constraints.dart';
+import 'dv.dart';
 class P_list extends StatefulWidget {
   const P_list({Key? key}) : super(key: key);
 
@@ -103,6 +104,8 @@ class _P_listState extends State<P_list> {
             'pno':pno,
             'r_price':r_price,
             'b_price':b_price});}
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => dv()));
     })
     ])))
       ),
