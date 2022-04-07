@@ -231,7 +231,7 @@ class _RegisterState extends State<Register> {
                         child: RichText(
                             text: TextSpan(children: [
                               TextSpan(
-                                  text: 'Already a Volunteer?',
+                                  text: 'Already a User?',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,

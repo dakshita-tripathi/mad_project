@@ -15,7 +15,7 @@ class P_list extends StatefulWidget {
 
 class _P_listState extends State<P_list> {
   String p_name=''; String cat='';
-  String desc='';
+  String desc=''; String email='';
   int pno=0; int r_price=0; int b_price=0;
   final _formKey = GlobalKey<FormState>();
   @override
@@ -53,6 +53,7 @@ class _P_listState extends State<P_list> {
       //   onChanged: (val) => setState(() => cat = val),
       // ),
       DropdownButtonFormField(
+          decoration: textInputDecoration.copyWith(hintText: 'Category'),
           items: items.map((items) {
             return DropdownMenuItem(
                 child: Text('${items}'), value: items);
@@ -75,6 +76,14 @@ class _P_listState extends State<P_list> {
         validator: (val) =>
         val!.isEmpty ? 'please enter your contact number' : null,
         onChanged: (val) => setState(() => pno = int.parse(val)),
+      ),
+      SizedBox(height: 20.0),
+      Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
+      TextFormField(
+        decoration: textInputDecoration.copyWith(hintText: 'Your email id'),
+        validator: (val) =>
+        val!.isEmpty ? 'please enter your email' : null,
+        onChanged: (val) => setState(() => email=val),
       ),
       SizedBox(height: 20.0),
       Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
@@ -103,7 +112,9 @@ class _P_listState extends State<P_list> {
             'desc':desc,
             'pno':pno,
             'r_price':r_price,
-            'b_price':b_price});}
+            'b_price':b_price,
+          'email':email,
+        });}
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => dv()));
     })

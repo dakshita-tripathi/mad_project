@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:madd/screens/home/product_listing.dart';
 import 'package:madd/screens/home/profiletile.dart';
 import '../../models/profile_item.dart';
+import 'not_found.dart';
 class p_display extends StatefulWidget {
   String cat;
   p_display({required this.cat});
@@ -16,6 +17,7 @@ class _p_displayState extends State<p_display> {
   List<String> p_name=[];
   List<String> p_cat=[];
   List<String> p_desc=[];
+  List<String> email=[];
   List<int> pno=[];
   List<int> r_price=[];
   List<int> b_price=[];
@@ -29,6 +31,7 @@ class _p_displayState extends State<p_display> {
         p_name.add(product.docs[index]['name']);
         p_cat.add(product.docs[index]['cat']);
         p_desc.add(product.docs[index]['desc']);
+        email.add(product.docs[index]['email']);
         pno.add(product.docs[index]['pno']);
         r_price.add(product.docs[index]['r_price']);
         b_price.add(product.docs[index]['b_price']);
@@ -40,18 +43,17 @@ class _p_displayState extends State<p_display> {
         stream: FirebaseFirestore.instance.collection('product').snapshots(),
     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
       if(!snapshot.hasData){return Center(child: CircularProgressIndicator());}
-      final documentSnapshotList = snapshot.data!.docs.where((element) => element['name']==cat);
+      final documentSnapshotList = snapshot.data!.docs.where((element) => element['cat']==cat);
       c = documentSnapshotList.length;
     if (!snapshot.hasData) {
     return Center(child: Text("snapshot has no data"));
     }
     else {
       if (c == 0) {
-        return Text('No available products in this category',
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),);
+        return Flash();
       }
       else{
-        final profile = List<Profile_item>.generate(c, (i) => Profile_item(p_name: p_name[i],cat:cat[i],desc: p_desc[i],b_price: b_price[i],r_price: r_price[i],pno: pno[i]));
+        final profile = List<Profile_item>.generate(c, (i) => Profile_item(p_name: p_name[i],cat:p_cat[i],desc: p_desc[i],email:email[i],b_price: b_price[i],r_price: r_price[i],pno: pno[i]));
         return ListView.builder(
           itemCount: profile.length,
           itemBuilder: (context, index) {
