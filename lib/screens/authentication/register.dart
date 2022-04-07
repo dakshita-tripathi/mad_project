@@ -181,7 +181,7 @@ class _RegisterState extends State<Register> {
               width: double.infinity,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("images/temp.jpg"),
+                    image: AssetImage("images/temp2.png"),
                     fit: BoxFit.cover,
                   ),
                   gradient: LinearGradient(

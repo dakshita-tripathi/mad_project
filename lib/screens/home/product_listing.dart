@@ -13,11 +13,17 @@ class P_list extends StatefulWidget {
 }
 
 class _P_listState extends State<P_list> {
-  String p_name='';
+  String p_name=''; String cat='';
   String desc='';
   int pno=0; int r_price=0; int b_price=0;
   final _formKey = GlobalKey<FormState>();
   @override
+  final List<String> items = [
+    'cooler',
+    'accessories',
+    'books',
+    'electronics'
+  ];
   Widget build(BuildContext context) {
     final user = Provider.of<Usser?>(context);
     return Scaffold(
@@ -26,7 +32,6 @@ class _P_listState extends State<P_list> {
         height: double.infinity,
         width: double.infinity,
     child:SingleChildScrollView(
-    reverse:true,
     child:Form(
     key: _formKey,
     child: Column(children: <Widget>[
@@ -40,6 +45,22 @@ class _P_listState extends State<P_list> {
       ),
       SizedBox(height: 20.0),
       Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
+      // TextFormField(
+      //   decoration: textInputDecoration.copyWith(hintText: 'Product Category(books/cooler/accessories/electronics)'),
+      //   validator: (val) =>
+      //   val!.isEmpty ? 'please enter your product category' : null,
+      //   onChanged: (val) => setState(() => cat = val),
+      // ),
+      DropdownButtonFormField(
+          items: items.map((items) {
+            return DropdownMenuItem(
+                child: Text('${items}'), value: items);
+          }).toList(),
+          onChanged: (val) {
+            setState(() => p_name = val! as String);
+          }),
+      SizedBox(height: 20.0),
+      Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
       TextFormField(
         decoration: textInputDecoration.copyWith(hintText: 'Product Description'),
         validator: (val) =>
@@ -49,7 +70,7 @@ class _P_listState extends State<P_list> {
       SizedBox(height: 20.0),
       Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
       TextFormField(
-        decoration: textInputDecoration.copyWith(hintText: 'Your Contact number'),
+        decoration: textInputDecoration.copyWith(hintText: 'Your Contact number',prefixText:'+91'),
         validator: (val) =>
         val!.isEmpty ? 'please enter your contact number' : null,
         onChanged: (val) => setState(() => pno = int.parse(val)),
@@ -57,7 +78,7 @@ class _P_listState extends State<P_list> {
       SizedBox(height: 20.0),
       Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
       TextFormField(
-        decoration: textInputDecoration.copyWith(hintText: 'Rent price of your product'),
+        decoration: textInputDecoration.copyWith(hintText: 'Rent price of your product',prefixText:'Rs'),
         validator: (val) =>
         val!.isEmpty ? 'please enter rent price of your product' : null,
         onChanged: (val) => setState(() => r_price = int.parse(val)),
@@ -65,7 +86,7 @@ class _P_listState extends State<P_list> {
       SizedBox(height: 20.0),
       Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
       TextFormField(
-        decoration: textInputDecoration.copyWith(hintText: 'Buying price of your product'),
+        decoration: textInputDecoration.copyWith(hintText: 'Buying price of your product',prefixText: 'Rs'),
         validator: (val) =>
         val!.isEmpty ? 'please enter buying price of your product' : null,
         onChanged: (val) => setState(() => b_price = int.parse(val)),
@@ -77,11 +98,11 @@ class _P_listState extends State<P_list> {
         final CollectionReference productCollection =
         FirebaseFirestore.instance.collection('product');
         productCollection.add(  { 'name':p_name,
+          'cat':cat,
             'desc':desc,
             'pno':pno,
             'r_price':r_price,
-            'b_price':b_price});
-      }
+            'b_price':b_price});}
     })
     ])))
       ),

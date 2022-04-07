@@ -191,7 +191,7 @@ class _signInState extends State<signIn> {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("images/temp.png"),
+                  image: AssetImage("images/temp2.png"),
                   fit: BoxFit.cover,
                 ),
               ),
