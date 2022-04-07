@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:madd/screens/home/product_display.dart';
+import 'package:madd/screens/home/product_listing.dart';
 
 import '../../services/auth.dart';
 
@@ -156,9 +157,9 @@ class _dvState extends State<dv> {
                 Container(
                   width: 200,
                   decoration: BoxDecoration(
-                    color: Colors.orange[100],
+
                     image: DecorationImage(
-                      image: AssetImage("images/f.jpg"),
+                      image: AssetImage("images/f.png"),
                     ),
                   ),
                 ),
@@ -168,9 +169,8 @@ class _dvState extends State<dv> {
                 Container(
                   width: 160,
                   decoration: BoxDecoration(
-                    color: Colors.orange[100],
                     image: DecorationImage(
-                      image: AssetImage("images/h.jpg"),
+                      image: AssetImage("images/h.png"),
                     ),
                   ),
                 ),
@@ -196,7 +196,7 @@ class _dvState extends State<dv> {
                     decoration: BoxDecoration(
                       color: Colors.orange[100],
                       image: DecorationImage(
-                        image: AssetImage("images/a.jpg"),
+                        image: AssetImage("images/a.png"),
                       ),
                     ),
                   ),
@@ -208,7 +208,7 @@ class _dvState extends State<dv> {
                     decoration: BoxDecoration(
                       color: Colors.orange[100],
                       image: DecorationImage(
-                        image: AssetImage("images/b.jpg"),
+                        image: AssetImage("images/b.png"),
                       ),
                     ),
                   ),
@@ -218,9 +218,9 @@ class _dvState extends State<dv> {
                   Container(
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Colors.orange[100],
+
                       image: DecorationImage(
-                        image: AssetImage("images/f.jpg"),
+                        image: AssetImage("images/f.png"),
                       ),
                     ),
                   ),
@@ -230,9 +230,9 @@ class _dvState extends State<dv> {
                   Container(
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Colors.orange[100],
+
                       image: DecorationImage(
-                        image: AssetImage("images/f.jpg"),
+                        image: AssetImage("images/f.png"),
                       ),
                     ),
                   ),
@@ -276,7 +276,10 @@ class _dvState extends State<dv> {
               size: 0.0,
             ),
             elevation: 0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => P_list()));
+            },
             padding: EdgeInsets.symmetric(vertical: 5),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5.0))),
