@@ -145,7 +145,7 @@ class _dvState extends State<dv> {
                 Container(
                   width: 200,
                   decoration: BoxDecoration(
-                    color: Colors.orange[100],
+
                     image: DecorationImage(
                       image: AssetImage("images/b.png"),
                     ),
@@ -194,7 +194,6 @@ class _dvState extends State<dv> {
                   Container(
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Colors.orange[100],
                       image: DecorationImage(
                         image: AssetImage("images/a.png"),
                       ),
@@ -206,7 +205,6 @@ class _dvState extends State<dv> {
                   Container(
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Colors.orange[100],
                       image: DecorationImage(
                         image: AssetImage("images/b.png"),
                       ),
