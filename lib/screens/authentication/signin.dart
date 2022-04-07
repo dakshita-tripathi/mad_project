@@ -122,24 +122,26 @@ class _signInState extends State<signIn> {
             }
             );
           }
-          if(email.substring(email.indexOf('@'))!='iiita.ac.in'){
-            Widget okButton = TextButton(
-              child: Text("OK"),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Register()),);
-              },
-            );
-            AlertDialog alert =AlertDialog(content: Text('please enter your IIITA mail id.'),actions: [okButton ]);
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return alert;
-              },);
-            email='';
-          }
+          // if(email.substring(email.indexOf('@'))!='iiita.ac.in'){
+          // }
           void Demo2() async{
-            if(email.substring(email.indexOf('@'))=='iiita.ac.in'){
+            if(email.substring(email.indexOf('@'))=='@iiita.ac.in'){
               await Navigator.push(context, MaterialPageRoute(builder: (context) => dv()),);}
+            else{
+              Widget okButton = TextButton(
+                child: Text("OK"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Register()),);
+                },
+              );
+              AlertDialog alert =AlertDialog(content: Text('please enter your IIITA mail id.'),actions: [okButton ]);
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return alert;
+                },);
+              email='';
+            }
           }
           Demo2();
         },
