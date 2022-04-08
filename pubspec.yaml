@@ -75,6 +75,7 @@ flutter:
     - images/flash2.png
     - images/flash.png
     - images/x.png
+    - images/pp.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

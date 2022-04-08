@@ -187,8 +187,7 @@ class _P_listState extends State<P_list> {
       ),
 
       body: Container(
-          height: double.infinity,
-          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(9, 0, 9, 0),
           child:SingleChildScrollView(
               child:Form(
                   key: _formKey,
@@ -246,6 +245,7 @@ class _P_listState extends State<P_list> {
                     Container(
                         width: 300,
                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                        decoration: BoxDecoration(color:Colors.orange[50],),
                         child:DropdownButtonFormField(
                             decoration: textInputDecoration.copyWith(hintText: 'Category of your product',prefixText:'  ',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],),
                             dropdownColor: Colors.orange[50],focusColor: Colors.red,
