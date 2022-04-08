@@ -23,9 +23,7 @@ class _dvState extends State<dv> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 55,
-                  ),
+                  SizedBox(height: 55,),
                   Container(
                       child: Text(
                         'Heyy, What Are You \nLooking For?',
@@ -34,7 +32,7 @@ class _dvState extends State<dv> {
                             fontWeight: FontWeight.bold),
                       )),
                   SizedBox(
-                    height: 10,
+                    height: 12,
                   ),
                   Container(
                     child: TextField(
@@ -69,7 +67,7 @@ class _dvState extends State<dv> {
                     height: 14,
                   ),
                   Container(
-                      height: 60,
+                      height: 50,
                       child:
                       ListView(scrollDirection: Axis.horizontal, children: <Widget>[
                         Container(
@@ -144,46 +142,49 @@ class _dvState extends State<dv> {
                     height: 10,
                   ),
                   Container(
-                      height: 115,
+                      height: 125,
                       child:
                       ListView(scrollDirection: Axis.horizontal, children: <Widget>[
                         SizedBox(
-                          height: 4,width: 6,
+                          height: 4,width: 8,
                         ),
                         Container(
-                          width: 200,padding: EdgeInsets.fromLTRB(2, 7, 2, 17),
+                          width: 150,padding: EdgeInsets.fromLTRB(2, 7, 2, 17),
                           decoration: BoxDecoration(
-                            color: Colors.orange[200],borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("images/b.png"),
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 4,width: 10,
+                          height: 4,width: 14,
                         ),
                         Container(padding: EdgeInsets.fromLTRB(2, 2, 2, 7),
-                          width: 200,
-                          decoration: BoxDecoration( color: Colors.orange[200],borderRadius: BorderRadius.all(Radius.circular(20)),
+                          width: 150,
+                          decoration: BoxDecoration( borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
                               image: AssetImage("images/a.png"),
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 4,width: 10,
+                          height: 4,width: 14,
                         ),
                         Container(
                           padding: EdgeInsets.all(5.0),
-                          width: 200,
-                          decoration: BoxDecoration( color: Colors.orange[200],borderRadius: BorderRadius.all(Radius.circular(20)),
+                          width: 150,
+                          decoration: BoxDecoration( borderRadius: BorderRadius.all(Radius.circular(20)),
                             image: DecorationImage(
-                              image: AssetImage("images/x.png"),
+                              image: AssetImage("images/x.jpeg"),
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 4,width: 6,
+                          height: 4,width: 8,
                         ),
                       ])),
 
@@ -197,7 +198,7 @@ class _dvState extends State<dv> {
                         color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold),
                   ),
 
-                  SizedBox(height: 10,),
+                  SizedBox(height: 16,),
 
                   Container(
                       height: 185,
@@ -246,21 +247,19 @@ class _dvState extends State<dv> {
                         ),
                       ])),])
         ),
-        floatingActionButton: FloatingActionButton(
-          focusColor: Colors.orange,
-          backgroundColor: Colors.orange,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => P_list()),
-            );
-          },
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: Icon(Icons.add,color: Colors.orange,),
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        // floatingActionButton: new Visibility(
+        // child:FloatingActionButton(
+        //   focusColor: Colors.orange,
+        //   backgroundColor: Colors.orange,
+        //   onPressed: () {
+        //   },
+        //   child: CircleAvatar(
+        //     backgroundColor: Colors.white,
+        //     // child: Icon(Icons.add,color: Colors.orange,),
+        //     child: Center(child:const Text('  Add\nproduct',style: TextStyle(color: Colors.orange,fontSize: 8,fontWeight: FontWeight.bold),),)
+        //   ),
+        // ),),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           notchMargin: 0,
@@ -285,7 +284,20 @@ class _dvState extends State<dv> {
                                           fontWeight: FontWeight.normal,
                                         ))
                                   ])),
-                          SizedBox(width: 240,),
+                          SizedBox(width: 54,),
+                          MaterialButton(
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.add),
+                                    Text('ADD PRODUCT',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal,
+                                        ))
+                                  ]),
+                              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => P_list()),);}),
+                          SizedBox(width: 54,),
                           MaterialButton(
                               minWidth: 40,
                               onPressed: () async {await _auth.signOut();},

@@ -134,7 +134,7 @@ class _RegisterState extends State<Register> {
               Widget okButton = TextButton(
                 child: Text("OK"),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Register()),);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => signIn()),);
                 },
               );
               AlertDialog alert =AlertDialog(content: Text('please enter your IIITA mail id.'),actions: [okButton ]);

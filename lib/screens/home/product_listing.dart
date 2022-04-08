@@ -219,7 +219,7 @@ class _P_listState extends State<P_list> {
                     SizedBox(height: 20.0),
                     Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
                     TextFormField(
-                      decoration: textInputDecoration.copyWith(hintText: 'Your Contact number',prefixText:'+91',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],
+                      decoration: textInputDecoration.copyWith(hintText: ' Your Contact number',prefixText:'+91',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],
                       ),
                       validator: (val) =>
                       val!.isEmpty ? 'please enter your contact number' : null,
@@ -228,7 +228,7 @@ class _P_listState extends State<P_list> {
                     SizedBox(height: 20.0),
                     Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
                     TextFormField(
-                      decoration: textInputDecoration.copyWith(hintText: 'Rent price of your product',prefixText:'Rs',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],),
+                      decoration: textInputDecoration.copyWith(hintText: ' Rent price of your product',prefixText:'Rs',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],),
                       validator: (val) =>
                       val!.isEmpty ? 'please enter rent price of your product' : null,
                       onChanged: (val) => setState(() => r_price = int.parse(val)),
@@ -236,7 +236,7 @@ class _P_listState extends State<P_list> {
                     SizedBox(height: 20.0),
                     Padding(padding: EdgeInsets.only(left: 20.0,right: 20.0),),
                     TextFormField(
-                      decoration: textInputDecoration.copyWith(hintText: 'Buying price of your product',prefixText: 'Rs',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],),
+                      decoration: textInputDecoration.copyWith(hintText: ' Buying price of your product',prefixText: 'Rs',hoverColor: Colors.orange[400],fillColor: Colors.orange[50],),
                       validator: (val) =>
                       val!.isEmpty ? 'please enter buying price of your product' : null,
                       onChanged: (val) => setState(() => b_price = int.parse(val)),
@@ -254,7 +254,7 @@ class _P_listState extends State<P_list> {
                                   child: Text('${items}'), value: items);
                             }).toList(),
                             onChanged: (val) {
-                              setState(() => p_name = val! as String);
+                              setState(() => cat = val! as String);
                             })),
                     SizedBox(height: 20.0),
                     RaisedButton(color: Colors.white70,highlightElevation: 0,

@@ -198,7 +198,6 @@ class _signInState extends State<signIn> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 20,),
                     Center(
                         child: CircleAvatar(
                             radius: 30.0,
@@ -213,7 +212,7 @@ class _signInState extends State<signIn> {
                       physics: AlwaysScrollableScrollPhysics(),
                       padding: EdgeInsets.symmetric(
                         horizontal: 25,
-                        vertical: 60,
+                        vertical: 30,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -224,13 +223,12 @@ class _signInState extends State<signIn> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 50),
+                          // SizedBox(height: 20),
                           buildEmail(),
-                          SizedBox(height: 20),
+                          SizedBox(height: 5),
                           buildPassword(),
-                          SizedBox(height: 20),
+                          SizedBox(height: 5),
                           buildLoginBtn(),
-                          SizedBox(height: 20),
                           buildSignUpBtn(),
                         ],
                       ),
