@@ -116,7 +116,7 @@ class _p_displayState extends State<p_display> {
                 bottom: 20.0
             ),
             child: new Text(
-              'Enter Details',
+              'Products for ${cat}',
               style: new TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w500,

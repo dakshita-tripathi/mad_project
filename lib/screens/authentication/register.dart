@@ -57,8 +57,7 @@ class _RegisterState extends State<Register> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Password',
+        Text('Password',
           style: TextStyle(
             color: Colors.orange,
             fontSize: 16,
@@ -69,9 +68,7 @@ class _RegisterState extends State<Register> {
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: Color.fromARGB(71, 158, 158, 158).withOpacity(
-              0.5,
-            ),
+            color: Color.fromARGB(71, 158, 158, 158).withOpacity(0.5,),
             borderRadius: BorderRadius.circular(16),
           ),
           height: 60,
@@ -84,13 +81,8 @@ class _RegisterState extends State<Register> {
                 prefixIcon: Icon(Icons.lock, color: Colors.orange),
                 hintText: 'Password',
                 hintStyle: TextStyle(color: Colors.black38)),
-            validator: (value) =>
-            value!.length < 6
-                ? 'Enter a password of 6 or more characters'
-                : null,
-            onChanged: (val) {
-              setState(() => password = val);
-            },
+            validator: (value) => value!.length < 6 ? 'Enter a password of 6 or more characters' : null,
+            onChanged: (val) {setState(() => password = val);},
           ),
         )
       ],
@@ -104,13 +96,8 @@ class _RegisterState extends State<Register> {
       child: RaisedButton(
         elevation: 5,
         onPressed: () async {
-          dynamic result =
-          await _auth.registerWithEmailAndPassword(email, password);
-          if (result == null) {
-            setState(() {
-              error = 'could not register';
-
-            });
+          dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+          if (result == null) {setState(() {error = 'could not register';});
           }
           // if(email.substring(email.indexOf('@'))!='iiita.ac.in'){
           //   Widget okButton = TextButton(

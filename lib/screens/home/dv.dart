@@ -31,9 +31,7 @@ class _dvState extends State<dv> {
                             fontSize: 29,
                             fontWeight: FontWeight.bold),
                       )),
-                  SizedBox(
-                    height: 12,
-                  ),
+                  SizedBox(height: 12,),
                   Container(
                     child: TextField(
                       cursorColor: Colors.grey,
@@ -41,7 +39,7 @@ class _dvState extends State<dv> {
                         suffixIcon: IconButton(
                             icon: Icon(Icons.search,color: Colors.grey,),
                             onPressed: (){Navigator.push(
-                     context, MaterialPageRoute(builder: (context) => p_display(cat: cat)));},
+                            context, MaterialPageRoute(builder: (context) => p_display(cat: cat)));},
 
                         ),
                         fillColor: Colors.orange[50],
@@ -54,18 +52,14 @@ class _dvState extends State<dv> {
                       onChanged: (val) {setState(() => cat = val);},
                     ),
                   ),
-                  SizedBox(
-                    height: 18,
-                  ),
+                  SizedBox(height: 18,),
                   Text(
                     'Categories',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
-                    height: 14,
-                  ),
+                  SizedBox(height: 14,),
                   Container(
                       height: 50,
                       child:
@@ -79,9 +73,7 @@ class _dvState extends State<dv> {
                                 ),
                                 onPressed: () {Navigator.push(
                                     context, MaterialPageRoute(builder: (context) => p_display(cat: 'electronics')));})),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: 10,),
                         Container(
                             child: FlatButton(
                                 color: Colors.orange[50],
@@ -91,9 +83,7 @@ class _dvState extends State<dv> {
                                 ),
                                 onPressed: () {Navigator.push(
                                     context, MaterialPageRoute(builder: (context) => p_display(cat: 'books')));})),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: 10,),
                         Container(
                             child: FlatButton(
                                 color: Colors.orange[50],
@@ -103,9 +93,7 @@ class _dvState extends State<dv> {
                                 ),
                                 onPressed: () {Navigator.push(
                                     context, MaterialPageRoute(builder: (context) => p_display(cat: 'cooler')));})),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: 10,),
                         Container(
                             child: FlatButton(
                                 color: Colors.orange[50],
@@ -115,10 +103,7 @@ class _dvState extends State<dv> {
                                 ),
                                 onPressed: () {Navigator.push(
                                     context, MaterialPageRoute(builder: (context) => p_display(cat: 'daily needs')));})),
-                        SizedBox(
-                          height: 20,
-                          width: 10,
-                        ),
+                        SizedBox(height: 20, width: 10,),
                         Container(
                             child: FlatButton(
                                 color: Colors.orange[50],
@@ -129,9 +114,7 @@ class _dvState extends State<dv> {
                                 onPressed: () {Navigator.push(
                                     context, MaterialPageRoute(builder: (context) => p_display(cat: 'accessories')));})),
                       ])),
-                  SizedBox(
-                    height: 17,
-                  ),
+                  SizedBox(height: 17,),
                   Text(
                     'New Recomendations',
                     textAlign: TextAlign.left,
