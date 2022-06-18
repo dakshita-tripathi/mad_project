@@ -87,6 +87,7 @@ class _p_displayState extends State<p_display> {
   List<int> pno=[];
   List<int> r_price=[];
   List<int> b_price=[];
+  List<String> url=[];
   int c=0;
   Widget build(BuildContext context) {
     String cat=widget.cat;
@@ -101,6 +102,7 @@ class _p_displayState extends State<p_display> {
           pno.add(product.docs[index]['pno']);
           r_price.add(product.docs[index]['r_price']);
           b_price.add(product.docs[index]['b_price']);
+          url.add(product.docs[index]['url']);
         }
       });});
     return Scaffold(
@@ -139,7 +141,8 @@ class _p_displayState extends State<p_display> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('product').snapshots(),
+          stream: _productStream,
+          //FirebaseFirestore.instance.collection('product').snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if(!snapshot.hasData){return Center(child: CircularProgressIndicator());}
             final documentSnapshotList = snapshot.data!.docs.where((element) => element['cat']==cat);
@@ -152,12 +155,15 @@ class _p_displayState extends State<p_display> {
                 return Flash();
               }
               else{
-                final profile = List<Profile_item>.generate(c, (i) => Profile_item(p_name: p_name[i],cat:p_cat[i],desc: p_desc[i],email:email[i],b_price: b_price[i],r_price: r_price[i],pno: pno[i]));
-                return ListView.builder(
-                  itemCount: profile.length,
-                  itemBuilder: (context, index) {
-                    return profiletile(profile: profile[index],ind:index);},
-                );
+                List<Profile_item> profile =[] ;
+                documentSnapshotList.forEach((element) {
+                  profile.add(Profile_item(url:element['url'],p_name: element['name'], cat: element['cat'], pno: element['pno'], r_price:element['r_price'], b_price: element['b_price'],email: element['email'], desc: element['desc']));
+                });
+                 return  ListView.builder(
+                   itemCount: c,
+                   itemBuilder: (context, index) {
+                     return profiletile(profile: profile[index],ind:index);},
+                 );
               }
             }}),
     );

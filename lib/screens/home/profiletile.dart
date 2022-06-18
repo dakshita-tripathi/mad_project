@@ -101,10 +101,10 @@ class _profiletileState extends State<profiletile> {
                   child: Column(
                       children:[
                         ListTile(
-                          // leading: CircleAvatar(
-                          // radius: 15,
-                          // backgroundImage: AssetImage('images/user.png'),
-                          // ),
+                          leading: CircleAvatar(
+                          radius: 15,
+                          backgroundImage: NetworkImage(profile.url),
+                          ),
                           title: Text(profile.p_name,style: TextStyle(color: Colors.orange[900]),),
                           subtitle: Text(
                             // 'has ${profile.cc_rank} stars on CodeChef \n has ${profile.he_rank} rank on HackerEarth \n has ${profile.apk_points} points in APK Month \n and is interested in ${profile.interests} \n Contact number: ${profile.pno}'
